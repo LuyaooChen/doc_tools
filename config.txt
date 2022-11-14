@@ -1,0 +1,17 @@
+[pdf_extract]
+# 匹配形如 [key_word][separator][result][end] 的文本
+
+# key_words_str会匹配非空字符，key_words_num仅匹配数字
+# 多个关键词之间用英文分号;隔开
+key_words_str = 借款人（乙方）;收件人
+key_words_num = 手机号码
+
+# 分隔符和结束符，可以写多个，有任意一个满足就会被匹配到。也可以留空
+# \s 表示空格或制表符或换行
+separator = :：
+end = \s
+
+[pdf_split]
+# 注：表示页数范围，多个范围之间用英文分号隔开
+# 如1,3;4,5表示分割1-3页为一个文件，4-5也分割为一个文件
+page_ranges = 7,8
