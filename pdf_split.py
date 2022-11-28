@@ -36,7 +36,11 @@ for pdf_path in glob.glob(os.path.join(in_dir, '*.pdf')):
         for page in range(start-1, end):    #cfg序号从1开始，左右都是闭区间
             # 将遍历的每一页添加到实例化对象中
             file_writer.addPage(file_reader.getPage(page))
-        with open(os.path.join(out_dir, pdf_name)+"{}-{}.pdf".format(start,end),'wb') as out:
+
+        out_path = os.path.join(out_dir, "{}-{}".format(start, end))
+        if not os.path.exists(out_path):
+            os.mkdir(out_path)
+        with open(os.path.join(out_path, pdf_name)+"{}-{}.pdf".format(start, end),'wb') as out:
             # 若报解码错误，可尝试在源码中加入"latin-1"
             file_writer.write(out)
 
