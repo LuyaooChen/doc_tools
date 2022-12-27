@@ -37,7 +37,7 @@ def get_class_ids_by_name(dataframe, class_name):
         id_1 = query_rows.iloc[-1,0]
     else:
         for k, v in CLASS_ID_TABLE.items():
-            if id_2 in v:
+            if id_2 in range(v[0],v[1]+1):
                 id_1 = k
                 break
 
